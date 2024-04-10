@@ -1,0 +1,6 @@
+robotframework >= 5.0.0
+robotframework-databaselibrary
+JayDeBeApi
+robotframework-seleniumlibrary
+robotframework-requests
+webdrivermanager

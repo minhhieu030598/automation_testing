@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.2 on win32)" generated="2024-04-10T19:12:34.061064" rpa="false" schemaversion="5">
+<suite id="s1" name="Person Test" source="C:\Users\hieudm\PycharmProjects\autotest_learn\api_testing\person_test.robot">
+<test id="s1-t1" name="Create Account API" line="11">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-04-10T19:12:34.118875" level="INFO">${CREATE_ACCOUNT_BODY} = {"name": "Hoang Van C", "dob": "2000-03-15", "status": "ACTIVATE"}</msg>
+<var>${CREATE_ACCOUNT_BODY}</var>
+<arg>{"name": "Hoang Van C", "dob": "2000-03-15", "status": "ACTIVATE"}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-04-10T19:12:34.117878" elapsed="0.000997"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-04-10T19:12:34.118875" level="INFO">&amp;{headers} = { Content-Type=application/json }</msg>
+<var>&amp;{headers}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-04-10T19:12:34.118875" elapsed="0.000000"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2024-04-10T19:12:34.118875" level="INFO">Creating Session using : alias=createAccountApi, url=http://localhost:3030, headers={'Content-Type': 'application/json'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>createAccountApi</arg>
+<arg>${accountServiceUrl}</arg>
+<arg>headers=${headers}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2024-04-10T19:12:34.118875" elapsed="0.000000"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2024-04-10T19:12:34.128843" level="INFO">POST Request : url=http://localhost:3030/persons 
+ path_url=/persons 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '66'} 
+ body={"name": "Hoang Van C", "dob": "2000-03-15", "status": "ACTIVATE"} 
+ </msg>
+<msg time="2024-04-10T19:12:34.128843" level="INFO">POST Response : url=http://localhost:3030/persons 
+ status=200, reason=OK 
+ headers={'Content-Type': 'application/json', 'Content-Length': '113'} 
+ body={"meta":{"code":"MANAGE-200","message":"Success","errors":null,"page":null,"size":null,"total":null},"data":null} 
+ </msg>
+<msg time="2024-04-10T19:12:34.128843" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>createAccountApi</arg>
+<arg>/persons</arg>
+<arg>data=${CREATE_ACCOUNT_BODY}</arg>
+<arg>headers=${headers}</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2024-04-10T19:12:34.118875" elapsed="0.009968"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${response}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-04-10T19:12:34.128843" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-04-10T19:12:34.129839" level="INFO">${response_data} = {'meta': {'code': 'MANAGE-200', 'message': 'Success', 'errors': None, 'page': None, 'size': None, 'total': None}, 'data': None}</msg>
+<var>${response_data}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-04-10T19:12:34.129839" elapsed="0.000000"/>
+</kw>
+<kw name="CONNECT POSTGRESQL">
+<kw name="Connect To Database Using Custom Params" owner="DatabaseLibrary">
+<msg time="2024-04-10T19:12:34.130836" level="INFO">Executing : Connect To Database Using Custom Params : jaydebeapi.connect(db_api_2.connect('org.postgresql.Driver', 'jdbc:postgresql://localhost:5432/happy_learn', ['postgres', 'iloveyou'], ['././lib/postgresql-42.3.6.jar']))</msg>
+<arg>jaydebeapi</arg>
+<arg>'org.postgresql.Driver', 'jdbc:postgresql://localhost:5432/happy_learn', ['postgres', 'iloveyou'], ['././lib/postgresql-42.3.6.jar']</arg>
+<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to
+connect to the database using the map string `db_connect_string`
+(parsed as a list of named arguments).</doc>
+<status status="PASS" start="2024-04-10T19:12:34.129839" elapsed="0.453653"/>
+</kw>
+<kw name="Set Auto Commit False">
+<msg time="2024-04-10T19:12:34.584490" level="FAIL">No keyword with name 'Set Auto Commit False' found. Did you try using keyword 'DatabaseLibrary.Set Auto Commit' and forgot to use enough whitespace between keyword and arguments?</msg>
+<status status="FAIL" start="2024-04-10T19:12:34.584490" elapsed="0.000000">No keyword with name 'Set Auto Commit False' found. Did you try using keyword 'DatabaseLibrary.Set Auto Commit' and forgot to use enough whitespace between keyword and arguments?</status>
+</kw>
+<status status="FAIL" start="2024-04-10T19:12:34.129839" elapsed="0.454651">No keyword with name 'Set Auto Commit False' found. Did you try using keyword 'DatabaseLibrary.Set Auto Commit' and forgot to use enough whitespace between keyword and arguments?</status>
+</kw>
+<kw name="Query" owner="DatabaseLibrary">
+<var>${queryAccount}</var>
+<arg>select name, dob, status from persons where name='Hoang Van C'</arg>
+<arg>returnAsDict=true</arg>
+<doc>Runs a query with the ``selectStatement`` and returns the result as a list of rows.
+The type of row values depends on the database module -
+usually they are tuples or tuple-like objects.</doc>
+<status status="NOT RUN" start="2024-04-10T19:12:34.584490" elapsed="0.000000"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${response_data}[meta][code]</arg>
+<arg>${queryAccount}[0][name]</arg>
+<arg>expected_status=200</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="NOT RUN" start="2024-04-10T19:12:34.584490" elapsed="0.000000"/>
+</kw>
+<kw name="Disconnect From Database" owner="DatabaseLibrary" type="TEARDOWN">
+<msg time="2024-04-10T19:12:34.584490" level="INFO">Executing : Disconnect From Database</msg>
+<doc>Disconnects from the database.</doc>
+<status status="PASS" start="2024-04-10T19:12:34.584490" elapsed="0.000996"/>
+</kw>
+<status status="FAIL" start="2024-04-10T19:12:34.117878" elapsed="0.467608">No keyword with name 'Set Auto Commit False' found. Did you try using keyword 'DatabaseLibrary.Set Auto Commit' and forgot to use enough whitespace between keyword and arguments?</status>
+</test>
+<status status="FAIL" start="2024-04-10T19:12:34.062061" elapsed="0.523425"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Person Test">Person Test</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-04-10T19:12:34.117878" level="ERROR">Error in file 'C:\Users\hieudm\PycharmProjects\autotest_learn\api_testing\person_test.robot' on line 5: Importing library 'custom_db_keywords.CustomDBKeywords' failed: ModuleNotFoundError: No module named 'custom_db_keywords'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\Users\hieudm\PycharmProjects\autotest_learn\venv\Scripts\robot.exe
+  C:\Users\hieudm\AppData\Local\Programs\Python\Python312\python312.zip
+  C:\Users\hieudm\AppData\Local\Programs\Python\Python312\DLLs
+  C:\Users\hieudm\AppData\Local\Programs\Python\Python312\Lib
+  C:\Users\hieudm\AppData\Local\Programs\Python\Python312
+  C:\Users\hieudm\PycharmProjects\autotest_learn\venv
+  C:\Users\hieudm\PycharmProjects\autotest_learn\venv\Lib\site-packages</msg>
+</errors>
+</robot>

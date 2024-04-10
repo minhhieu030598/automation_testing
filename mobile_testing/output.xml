@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.2 on win32)" generated="2024-04-10T18:40:26.702968" rpa="false" schemaversion="5">
+<suite id="s1" name="Db Testing" source="C:\Users\hieudm\PycharmProjects\autotest_learn\mobile_testing\db_testing.robot">
+<test id="s1-t1" name="Verify Specific Data in Database" line="13">
+<kw name="Connect To Database Using Custom Params" owner="DatabaseLibrary">
+<msg time="2024-04-10T18:40:26.762775" level="FAIL">ModuleNotFoundError: No module named 'postgresql+psycopg2://postgres:iloveyou@localhost:5432/happy_learn'</msg>
+<arg>${DB_CONNECT_STRING}</arg>
+<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to
+connect to the database using the map string `db_connect_string`
+(parsed as a list of named arguments).</doc>
+<status status="FAIL" start="2024-04-10T18:40:26.762775" elapsed="0.000000">ModuleNotFoundError: No module named 'postgresql+psycopg2://postgres:iloveyou@localhost:5432/happy_learn'</status>
+</kw>
+<kw name="Query" owner="DatabaseLibrary">
+<var>${query_result}</var>
+<arg>SELECT name, dob, status FROM persons WHERE name='Hoang Van C'</arg>
+<doc>Runs a query with the ``selectStatement`` and returns the result as a list of rows.
+The type of row values depends on the database module -
+usually they are tuples or tuple-like objects.</doc>
+<status status="NOT RUN" start="2024-04-10T18:40:26.763771" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${query_result[0][0]}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2024-04-10T18:40:26.763771" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${query_result[0][1]}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2024-04-10T18:40:26.763771" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${query_result[0][2]}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2024-04-10T18:40:26.763771" elapsed="0.000000"/>
+</kw>
+<kw name="Disconnect From Database" owner="DatabaseLibrary">
+<doc>Disconnects from the database.</doc>
+<status status="NOT RUN" start="2024-04-10T18:40:26.763771" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2024-04-10T18:40:26.761778" elapsed="0.001993">ModuleNotFoundError: No module named 'postgresql+psycopg2://postgres:iloveyou@localhost:5432/happy_learn'</status>
+</test>
+<status status="FAIL" start="2024-04-10T18:40:26.702968" elapsed="0.061800"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Db Testing">Db Testing</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
