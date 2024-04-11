@@ -1,54 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0 (Python 3.12.2 on win32)" generated="2024-04-10T18:40:26.702968" rpa="false" schemaversion="5">
-<suite id="s1" name="Db Testing" source="C:\Users\hieudm\PycharmProjects\autotest_learn\mobile_testing\db_testing.robot">
-<test id="s1-t1" name="Verify Specific Data in Database" line="13">
-<kw name="Connect To Database Using Custom Params" owner="DatabaseLibrary">
-<msg time="2024-04-10T18:40:26.762775" level="FAIL">ModuleNotFoundError: No module named 'postgresql+psycopg2://postgres:iloveyou@localhost:5432/happy_learn'</msg>
-<arg>${DB_CONNECT_STRING}</arg>
-<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to
-connect to the database using the map string `db_connect_string`
-(parsed as a list of named arguments).</doc>
-<status status="FAIL" start="2024-04-10T18:40:26.762775" elapsed="0.000000">ModuleNotFoundError: No module named 'postgresql+psycopg2://postgres:iloveyou@localhost:5432/happy_learn'</status>
+<robot generator="Robot 7.0 (Python 3.12.2 on win32)" generated="2024-04-11T18:37:48.822052" rpa="false" schemaversion="5">
+<suite id="s1" name="Android Testing" source="C:\Users\hieudm\PycharmProjects\autotest_learn\mobile_testing\android_testing.robot">
+<test id="s1-t1" name="Test Successful Login On Mobile" line="16">
+<kw name="Open Application" owner="AppiumLibrary">
+<arg>${URL}</arg>
+<arg>platformName=${PLATFORM_NAME}</arg>
+<arg>deviceName=${DEVICE_NAME}</arg>
+<arg>app=${APP}</arg>
+<arg>automationName=UiAutomator2</arg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/server-args.md
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |
+| strict_ssl          | No     | allows you to send commands to an invalid certificate host like a self-signed one. |</doc>
+<status status="PASS" start="2024-04-11T18:37:48.907278" elapsed="12.403276"/>
 </kw>
-<kw name="Query" owner="DatabaseLibrary">
-<var>${query_result}</var>
-<arg>SELECT name, dob, status FROM persons WHERE name='Hoang Van C'</arg>
-<doc>Runs a query with the ``selectStatement`` and returns the result as a list of rows.
-The type of row values depends on the database module -
-usually they are tuples or tuple-like objects.</doc>
-<status status="NOT RUN" start="2024-04-10T18:40:26.763771" elapsed="0.000000"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>${query_result[0][0]}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="NOT RUN" start="2024-04-10T18:40:26.763771" elapsed="0.000000"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>${query_result[0][1]}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="NOT RUN" start="2024-04-10T18:40:26.763771" elapsed="0.000000"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>${query_result[0][2]}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="NOT RUN" start="2024-04-10T18:40:26.763771" elapsed="0.000000"/>
-</kw>
-<kw name="Disconnect From Database" owner="DatabaseLibrary">
-<doc>Disconnects from the database.</doc>
-<status status="NOT RUN" start="2024-04-10T18:40:26.763771" elapsed="0.000000"/>
-</kw>
-<status status="FAIL" start="2024-04-10T18:40:26.761778" elapsed="0.001993">ModuleNotFoundError: No module named 'postgresql+psycopg2://postgres:iloveyou@localhost:5432/happy_learn'</status>
+<status status="PASS" start="2024-04-11T18:37:48.907278" elapsed="12.403276"/>
 </test>
-<status status="FAIL" start="2024-04-10T18:40:26.702968" elapsed="0.061800"/>
+<doc>Test suite for mobile application login.</doc>
+<status status="PASS" start="2024-04-11T18:37:48.822052" elapsed="12.489499"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="Db Testing">Db Testing</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Android Testing">Android Testing</stat>
 </suite>
 </statistics>
 <errors>

@@ -1,0 +1,56 @@
+pip install robotframework
+robot --version
+rebot --version
+
+pip install robotframework-seleniumlibrary
+pip install selenium
+pip install robotframework-requests
+pip install robotframework-requests robotframework-databaselibrary
+pip install jaydebeapi JPype1
+
+
+Plugin
+Intellibot
+Robot Framework Language Server
+robot framework Support
+
+robot --outputdir web_interface web_interface/test_robo.robot
+
+all
+https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html
+window
+https://download.oracle.com/java/17/archive/jdk-17.0.10_windows-x64_bin.exe
+
+JAVA_HOME
+
+Chrome driver
+https://sites.google.com/chromium.org/driver/downloads
+download, unzip, install exe file
+
+add Xpath helper extension on chrome
+
+
+App
+https://github.com/appium/appium-desktop/releases/
+download: file exe nếu dùng window
+
+pip install robotframework-appiumlibrary
+pip install Appium-Python-Client==3.0.0
+ (Cài bản 4 sẽ có lỗi Importing library 'AppiumLibrary' failed: ModuleNotFoundError: No module named 'appium.webdriver.common.touch_action')
+ https://forum.robotframework.org/t/unable-to-import-robotframework-appiumlibrary-even-after-successful-installation-in-pycharm/6990
+
+install android studio để cài android home và AVD (cài xong cần bật avd)
+cấu hình như này trong Appium
+ANDROID_HOME: C:\Users\hieudm\AppData\Local\Android\Sdk
+JAVA_HOME: C:\Program Files\Java\jdk-17
+Bật Appium, run server
+
+
+
+
+
+
+
+
+
+
