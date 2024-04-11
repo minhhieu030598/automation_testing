@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0 (Python 3.12.2 on win32)" generated="2024-04-11T18:37:48.822052" rpa="false" schemaversion="5">
+<robot generator="Robot 7.0 (Python 3.12.2 on win32)" generated="2024-04-11T19:36:52.940713" rpa="false" schemaversion="5">
 <suite id="s1" name="Android Testing" source="C:\Users\hieudm\PycharmProjects\autotest_learn\mobile_testing\android_testing.robot">
-<test id="s1-t1" name="Test Successful Login On Mobile" line="16">
+<test id="s1-t1" name="Test Successful Login On Mobile" line="27">
 <kw name="Open Application" owner="AppiumLibrary">
 <arg>${URL}</arg>
 <arg>platformName=${PLATFORM_NAME}</arg>
@@ -15,12 +15,51 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 | remote_url          | Yes    | Appium server url |
 | alias               | no     | alias             |
 | strict_ssl          | No     | allows you to send commands to an invalid certificate host like a self-signed one. |</doc>
-<status status="PASS" start="2024-04-11T18:37:48.907278" elapsed="12.403276"/>
+<status status="PASS" start="2024-04-11T19:36:53.027261" elapsed="7.046649"/>
 </kw>
-<status status="PASS" start="2024-04-11T18:37:48.907278" elapsed="12.403276"/>
+<kw name="Input Text" owner="AppiumLibrary">
+<msg time="2024-04-11T19:37:00.074907" level="INFO">Typing text 'proton@gmail.com' into text field 'id=edtEmail'</msg>
+<msg time="2024-04-11T19:37:01.037876" level="INFO">criteria is edtEmail</msg>
+<arg>${emailAddressTextbox}</arg>
+<arg>${USERNAME}</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<status status="PASS" start="2024-04-11T19:37:00.074907" elapsed="0.962969"/>
+</kw>
+<kw name="Input Text" owner="AppiumLibrary">
+<msg time="2024-04-11T19:37:01.039800" level="INFO">Typing text 'abc1234!' into text field 'id=edtPassword'</msg>
+<msg time="2024-04-11T19:37:02.073675" level="INFO">criteria is edtPassword</msg>
+<arg>${passwordTextbox}</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<status status="PASS" start="2024-04-11T19:37:01.038803" elapsed="1.034872"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-04-11T19:37:02.075960" level="INFO">Clicking element 'id=btnLogin'.</msg>
+<msg time="2024-04-11T19:37:02.610137" level="INFO">criteria is btnLogin</msg>
+<arg>${loginButton}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-04-11T19:37:02.074961" elapsed="0.535176"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-04-11T19:37:04.611190" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-04-11T19:37:02.610137" elapsed="2.001053"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<msg time="2024-04-11T19:37:04.661289" level="INFO">criteria is flFragment</msg>
+<arg>id=flFragment</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" start="2024-04-11T19:37:04.611190" elapsed="0.050099"/>
+</kw>
+<kw name="Close Application" owner="AppiumLibrary" type="TEARDOWN">
+<doc>Closes the current application and also close webdriver session.</doc>
+<status status="PASS" start="2024-04-11T19:37:04.662286" elapsed="0.160164"/>
+</kw>
+<status status="PASS" start="2024-04-11T19:36:53.025957" elapsed="11.796493"/>
 </test>
 <doc>Test suite for mobile application login.</doc>
-<status status="PASS" start="2024-04-11T18:37:48.822052" elapsed="12.489499"/>
+<status status="PASS" start="2024-04-11T19:36:52.941710" elapsed="11.881737"/>
 </suite>
 <statistics>
 <total>
